@@ -1,34 +1,14 @@
-# HTMX practical guide
+import express from "express";
 
-## Getting started
+import { HTMX_KNOWLEDGE } from "./data/htmx-info.js";
 
-### What is HTMX
+const app = express();
 
-- HTML extension
-- JavaScript library
-- No Javascript code
-  - include library
-  - use special tags
-- Simplify data fetching
+app.use(express.static("public"));
 
-### Github course repository
-
-[Source code](https://github.com/academind/htmx-course-resources)
-
-## HTMX essentials
-
-### Project setup
-
-```sh
-pnpm start
-```
-
-### Installing HTMX
-
-[Docs](https://htmx.org/docs/)
-
-```html
-  <!DOCTYPE html>
+app.get("/", (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
     <html>
       <head>
         <title>HTMX Essentials</title>
@@ -49,13 +29,19 @@ pnpm start
 
         <main>
           <p>HTMX is a JavaScript library that you use without writing JavaScript code.</p>
-          <button>Learn More</button>
+          <button hx-get="/info">Learn More</button>
         </main>
       </body>
     </html>
-    ```
-### Sending GET request
+  `);
+});
 
-```html
-<button hx-get="/info">Learn More</button>
-```
+app.get("/info", (req, res) => {
+  res.send(`
+    <ul>
+      ${HTMX_KNOWLEDGE.map((info) => `<li>${info}</li>`)}
+    </ul>
+    `);
+});
+
+app.listen(3000);

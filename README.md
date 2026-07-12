@@ -71,3 +71,15 @@ pnpm start
 ```html
 <button hx-get="/info" hx-target="main" hx-swap="beforeend">Learn More</button>
 ```
+
+### hx-trigger
+
+```html
+<button hx-get="/info" hx-target="main" hx-trigger="mouseenter[ctrlkey]" hx-swap="beforeend">Learn More</button>
+```
+
+### hx-post
+
+```html
+<form hx-post="/note">
+```

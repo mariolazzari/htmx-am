@@ -59,3 +59,11 @@ pnpm start
 ```html
 <button hx-get="/info">Learn More</button>
 ```
+
+### hx-swap
+
+```html
+<button hx-get="/info" hx-swap="outerHTML">Learn More</button>
+```
+
+### hx-target

@@ -81,5 +81,17 @@ pnpm start
 ### hx-post
 
 ```html
-<form hx-post="/note">
+<form hx-post="/note" hx-target="ul" hx-swap="outerHTML">
+```
+
+### hx-select
+
+```html
+<form hx-post="/note" hx-target="ul" hx-swap="outerHTML" hx-select="ul">
+```
+
+### Practice 1
+
+```html
+
 ```

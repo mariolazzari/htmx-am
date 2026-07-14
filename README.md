@@ -1,5 +1,7 @@
 # HTMX practical guide
 
+[Github](https://github.com/academind/htmx-course-resources)
+
 ## Getting started
 
 ### What is HTMX
@@ -179,3 +181,23 @@ app.listen(3000);
 ```
 
 ### HYMX inheritance
+
+```html
+  <ul id="goals" hx-swap="outerHTML">
+          ${courseGoals
+            .map(
+              (goal, index) => `
+            <li id="goal-${index}">
+              <span>${goal}</span>
+              <button
+                hx-delete="/goals/${index}"
+                hx-target="#goal-${index}"
+                >
+                  Remove
+                </button>
+            </li>
+          `
+            )
+            .join('')}
+  </ul>
+```

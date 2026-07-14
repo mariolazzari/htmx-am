@@ -152,3 +152,30 @@ app.post("/note", (req, res) => {
 
 app.listen(3000);
 ```
+
+## Adcvanced concepts
+
+### hx-delete
+
+```html
+<ul id="goals">
+        ${courseGoals
+        .map(
+          (goal, index) => `
+            <li id="goal-${index}">
+              <span>${goal}</span>
+              <button
+                hx-delete="/goals/${index}"
+                hx-target="#goal-${index}"
+                hx-swap="outerHTML"
+                >
+                  Remove
+                </button>
+            </li>
+          `
+         )
+        .join('')}
+</ul>
+```
+
+### HYMX inheritance

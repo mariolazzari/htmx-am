@@ -388,3 +388,23 @@ function renderGoalListItem(id, text) {
   `;
 }
 ```
+
+### hx-on
+
+[hx-on](https://htmx.org/attributes/hx-on/)
+
+**hx-on** can be a useful HTMX attribute for listening to events and handling those events.
+
+When using hx-on, you can either call some function that's stored somewhere else (e.g., in some JavaScript file) OR you can put your JS code right between the double quotes (hx-on:click="console.log('Yeah!')").
+
+No matter which approach you use, it's worth noting that HTMX will automatically provide a variable called event which gives you access to the emitted event object.
+
+You can then use this event object to access event data or call methods like event.preventDefault():
+
+```html
+<button hx-on:click="console.log(event)">
+  Click me
+</button>
+```
+
+### Events

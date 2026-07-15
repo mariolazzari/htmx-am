@@ -369,3 +369,22 @@ app.delete('/goals/:id', (req, res) => {
 
 app.listen(3000);
 ```
+
+### hx-confirmation
+
+```js
+function renderGoalListItem(id, text) {
+  return `
+    <li>
+      <span>${text}</span>
+      <button
+        hx-delete="/goals/${id}"
+        hx-target="closest li"
+        hx-confirm="Are you sure?"
+        >
+          Remove
+      </button>
+    </li>
+  `;
+}
+```

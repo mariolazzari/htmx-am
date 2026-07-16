@@ -413,3 +413,15 @@ You can then use this event object to access event data or call methods like eve
 hx-on:htmx:after-request="document.querySelector('form').reset()"
 hx-on::after-request="this.reset()"
 ```
+
+### Disabling elements
+
+```html
+hx-disabled-elt="form button"
+```
+
+### Request values
+
+```html
+
+```

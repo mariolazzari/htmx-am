@@ -408,3 +408,8 @@ You can then use this event object to access event data or call methods like eve
 ```
 
 ### Events
+
+```html
+hx-on:htmx:after-request="document.querySelector('form').reset()"
+hx-on::after-request="this.reset()"
+```

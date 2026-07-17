@@ -454,3 +454,47 @@ export default function renderLocation(location) {
   `;
 }
 ```
+
+### Dynamic attributes on server
+
+```js
+export default function renderLocation(location, isAvailable = true) {
+  let attributes;
+
+  if (isAvailable) {
+    attributes = `
+      hx-post="/places"
+      hx-vals='{"locationId: "${location.id}"}
+      hx-target="#interesting-locations"'
+      hx-swap="beforeend"
+    `
+  } else {
+    attributes = `
+      hx-delete="/places/${location.id}"
+      hx-confirm="Are you sure?"
+      hx-target="closest li"
+      hx-swap="outerHTML"
+    `
+  }
+
+  return `
+    <li class="location-item">
+      <button ${attributes}>
+        <img src="${`/images/${location.image.src}`}" alt="${location.image.alt}" />
+        <h3>${location.title}</h3>
+      </button>
+    </li>
+  `;
+}
+```
+
+### Dynamic attributes on client
+
+
+```html
+<script>
+  const button = document.querySelector("button"); 
+  button.setAttribute("hx-get", "/data");
+  htmx.process(button);
+</script>
+```

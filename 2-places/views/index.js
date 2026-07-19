@@ -20,7 +20,7 @@ export default function renderLocationsPage(availableLocations, interestingLocat
           </p>
         </header>
         <main>
-          <section class="locations-category">
+          <section id="int-locations-section" class="locations-category">
             <h2>My Dream Locations</h2>
             <ul id="interesting-locations" class="locations">
               ${interestingLocations.map((location) => renderLocation(location, false)).join('')}

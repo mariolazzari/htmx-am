@@ -11,10 +11,8 @@ export default function renderLocation(location, isAvailable = true) {
   } else {
     attributes = `
       hx-delete="/places/${location.id}"
-      hx-confirm="Are you sure?"
       hx-target="closest li"
       hx-swap="outerHTML show:top"
-    `
   }
 
   return `

@@ -1,6 +1,10 @@
 import renderLocation from './components/location.js';
 
-export default function renderLocationsPage(availableLocations, interestingLocations) {
+export default function renderLocationsPage(
+  suggestedLocations,
+  availableLocations,
+  interestingLocations
+) {
   return `
     <!DOCTYPE html>
     <html>
@@ -21,17 +25,30 @@ export default function renderLocationsPage(availableLocations, interestingLocat
           </p>
         </header>
         <main>
+          <section id="suggested-locations-section">
+            <h2>Currently suggested</h2>
+            <ul class="locations" id="suggested-locations">
+            ${suggestedLocations
+              .map((location) => renderLocation(location))
+              .join('')}
+            </ul>
+          </section>
+
           <section id="int-locations-section" class="locations-category">
             <h2>My Dream Locations</h2>
             <ul id="interesting-locations" class="locations">
-              ${interestingLocations.map((location) => renderLocation(location, false)).join('')}
+              ${interestingLocations
+                .map((location) => renderLocation(location, false))
+                .join('')}
             </ul>
           </section>
 
           <section class="locations-category">
             <h2>Available Locations</h2>
             <ul id="available-locations" class="locations">
-              ${availableLocations.map((location) => renderLocation(location)).join('')}
+              ${availableLocations
+                .map((location) => renderLocation(location))
+                .join('')}
             </ul>
           </section>
         </main>

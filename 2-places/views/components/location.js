@@ -1,18 +1,21 @@
-export default function renderLocation(location, isAvailable = true) {
+export default function renderLocation(location, isAvailableLocation = true) {
   let attributes;
 
-  if (isAvailable) {
+  if (isAvailableLocation) {
     attributes = `
-      hx-post="/places"
-      hx-vals='{"locationId: "${location.id}"}
-      hx-target="#interesting-locations"'
-      hx-swap="beforeend show:#int-locations-section:top"
-    `
+        hx-post="/places" 
+        hx-vals='{"locationId": "${location.id}"}'
+        hx-target="#interesting-locations"
+        hx-swap="beforeend show:#int-locations-section:top"
+        data-action="add"
+    `;
   } else {
     attributes = `
-      hx-delete="/places/${location.id}"
-      hx-target="closest li"
-      hx-swap="outerHTML show:top"
+        hx-delete="/places/${location.id}"
+        hx-target="closest li"
+        hx-swap="outerHTML"
+        data-action="remove"
+    `;
   }
 
   return `

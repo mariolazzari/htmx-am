@@ -699,4 +699,27 @@ document.addEventListener('htmx:confirm', showConfirmationModal);
 
 ## HTMX request & response
 
-###
+### hx-params
+
+```html
+ <input
+     hx-post="/validate"
+     hx-target="next p"
+     hx-params="password"
+     type="password"
+     name="password"
+     id="password" />
+ ```
+
+### hx-headers
+
+```html
+ <input
+     hx-post="/validate"
+     hx-target="next p"
+     hx-params="password"
+     hx-headers='{"x-csrf-token":"abc"}'
+     type="password"
+     name="password"
+     id="password" />
+```

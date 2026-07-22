@@ -723,3 +723,9 @@ document.addEventListener('htmx:confirm', showConfirmationModal);
      name="password"
      id="password" />
 ```
+
+### Multiple requests
+
+```html
+
+```

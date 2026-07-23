@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
             hx-post="/login"
             hx-target="#extra-information"
             hx-swap="innerHTML"
+            hx-sync="this:replace"
             >
             <div>
               <img src="/images/auth-icon.jpg" alt="A lock icon" />

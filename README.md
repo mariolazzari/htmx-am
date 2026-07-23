@@ -724,7 +724,20 @@ document.addEventListener('htmx:confirm', showConfirmationModal);
      id="password" />
 ```
 
-### Multiple requests
+### hx-sync
+
+[Docs](https://htmx.org/attributes/hx-sync/)
+
+```html
+ <form
+    hx-post="/login"
+    hx-target="#extra-information"
+    hx-swap="innerHTML"
+    hx-sync="this:replace"
+ >
+```
+
+### Redirects
 
 ```html
 

@@ -111,6 +111,9 @@ app.post('/login', (req, res) => {
       </div>
     `);
   }
+
+  // change header for real redirection
+  res.setHeader("HX-Redirect", "/authenticated")
   res.send();
 });
 

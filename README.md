@@ -771,3 +771,17 @@ app.post('/login', (req, res) => {
   res.send();
 });
 ```
+
+### Retargeting responses
+
+- HX-Reswap :allows you to specify how the response will be swapped. See hx-swap for possible values
+- HX-Retarget: CSS selector that updates the target of the content update to a different element on the page
+- HX-Reselect: CSS selector that allows you to choose which part of the response is used to be swapped in. Overrides an existing hx-select on the triggering element
+
+### Retarget extension
+
+[Doc](https://four.htmx.org/reference/headers/HX-Retarget)
+
+## Bulding SPA
+
+###
